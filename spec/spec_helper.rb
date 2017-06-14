@@ -1,3 +1,4 @@
+require './lib/game'
 require './lib/grid'
 require './lib/x'
 require './lib/o'

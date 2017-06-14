@@ -24,3 +24,7 @@ The entire program is written according to best practice with object oriented de
 3.  As a user
     So I can play with a second person
     I want to be able to place an O on the grid
+
+4.  As a user
+    So I can play witha  second person  
+    I want the game to change turns  
