@@ -19,4 +19,8 @@ The entire program is written according to best practice with object oriented de
 
 2.  As a user  
     So I can play a move
-    I want to be able to place an X on the grid
+    I want to be able to place an X on the grid  
+
+3.  As a user
+    So I can play with a second person
+    I want to be able to place an O on the grid
