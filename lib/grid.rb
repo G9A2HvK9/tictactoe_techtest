@@ -2,7 +2,7 @@ class Grid
   attr_reader :field
 
   def record(move)
-    @field[move.row].insert(move.col, move.value)
+    @field[move.row][move.col] = move.value
   end
 
   private

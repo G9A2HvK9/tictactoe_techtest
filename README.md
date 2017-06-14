@@ -28,3 +28,7 @@ The entire program is written according to best practice with object oriented de
 4.  As a user
     So I can play witha  second person  
     I want the game to change turns  
+
+5.  As a user
+    So I can know when the game is over
+    I want the game to declare a winner
