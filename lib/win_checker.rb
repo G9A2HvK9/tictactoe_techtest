@@ -4,14 +4,19 @@ class Win_Checker
   def check_winning_conditions
     if horizontal_winner != 0
       @winner.change_winner(horizontal_winner)
+      set_game_over
     elsif vertical_winner != 0
       @winner.change_winner(vertical_winner)
+      set_game_over
     elsif diagonal_winner("right") != 0
       @winner.change_winner(diagonal_winner("right"))
+      set_game_over
     elsif diagonal_winner("left") != 0
       @winner.change_winner(diagonal_winner("left"))
+      set_game_over
     elsif tie?
       @winner.change_winner(0)
+      set_game_over
     end
   end
 
@@ -20,7 +25,7 @@ class Win_Checker
   def initialize(grid)
     @grid = grid
     @winner = Winner.new
-    @game_over = @winner.game_over
+    @game_over = false
   end
 
   ## Checks for horizontal sum and winner
@@ -87,6 +92,10 @@ class Win_Checker
 
   def tie?
     !@grid.field.any?{ |row| row.any?{ |value| value == 0}}
+  end
+
+  def set_game_over
+    @game_over = true
   end
 
 end
