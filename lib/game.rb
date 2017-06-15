@@ -3,13 +3,15 @@ class Game
 
   def play_move(row, col)
     @turn == 0 ? play_X(row, col) : play_O(row, col)
-    change_turn
+    @win_checker.check_winning_conditions
+    @win_checker.winner ? change_turn : @win_checker.winner.declare
   end
 
   private
 
   def initialize(turn = nil)
     @grid = Grid.new
+    @win_checker = Win_Checker.new(@grid)
     @turn = turn
   end
 
