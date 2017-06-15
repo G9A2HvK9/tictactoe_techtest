@@ -37,6 +37,14 @@ describe Grid do
     end
   end
 
-  
+  describe "Guard conditions" do
+
+    it "raises an exception if a field is already full" do
+      subject.record(O.new(0,0))
+      expect{ subject.record(X.new(0,0)) }.to throw_error
+    end
+  end
+
+
 
 end
