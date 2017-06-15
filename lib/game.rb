@@ -1,10 +1,11 @@
 class Game
-  attr_reader :grid, :turn
+  attr_reader :grid, :turn, :win_checker
 
   def play_move(row, col)
+    raise("The game is over") if @win_checker.game_over
     @turn == 0 ? play_X(row, col) : play_O(row, col)
     @win_checker.check_winning_conditions
-    @win_checker.winner ? change_turn : @win_checker.winner.declare
+    !@win_checker.winner.winner ? change_turn : @win_checker.winner.declare
   end
 
   private

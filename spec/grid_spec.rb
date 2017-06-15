@@ -41,7 +41,7 @@ describe Grid do
 
     it "raises an exception if a field is already full" do
       subject.record(O.new(0,0))
-      expect{ subject.record(X.new(0,0)) }.to throw_error
+      expect{ subject.record(X.new(0,0)) }.to raise_error(RuntimeError)
     end
   end
 
