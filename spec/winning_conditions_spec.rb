@@ -20,5 +20,4 @@ describe Winning_Conditions do
       end
     end
   end
-
 end
