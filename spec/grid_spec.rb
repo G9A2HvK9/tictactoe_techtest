@@ -5,7 +5,7 @@ describe Grid do
       expect(subject).to be_an_instance_of(Grid)
     end
 
-    it "instantiates with one instance variable - array - which is [0,0,0,0,0,0,0,0,0]" do
+    it "instantiates with one instance variable - value - which is false" do
       expect(subject).to have_attributes(:array => [0,0,0,0,0,0,0,0,0])
     end
   end

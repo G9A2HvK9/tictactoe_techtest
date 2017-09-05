@@ -18,6 +18,7 @@ describe Game do
     it "can be called on the Game class with 3 arguments" do
       expect(subject).to respond_to(:play_move).with(2).arguments
     end
+
     context "when a move is played on index 0 of the grid, while turn counter is 0" do
       it "sets grid position 0 to 1" do
         expect{ subject.play_move(1, 0) }.to change{ subject.grid.array[0] }.from(0).to(1)
@@ -26,6 +27,15 @@ describe Game do
         expect{ subject.play_move(1, 0) }.to change{ subject.turn_counter }.from(0).to(1)
       end
     end
+
+    context "when a move is played that completes the game" do
+      it "declares the game as over" do
+        subject.play_move(1, 2)
+        subject.play_move(1, 5)
+        expect{ subject.play_move(1, 8) }.to raise_error(RuntimeError)
+      end
+    end
+
     context "when a field is played twice" do
       it "throws an argument error  with message 'This field is already taken'" do
         subject.play_move(1, 0)
