@@ -1,0 +1,2 @@
+class Winning_Conditions
+end

@@ -1,38 +1,29 @@
 describe Game do
 
-  subject { Game.new }
-  let (:game0) { Game.new(0) }
-  let (:game1) { Game.new(1)}
-  let (:grid) { subject.grid }
+  describe "#initialize" do
+    it "Is an instance of the Game class" do
+      expect(subject).to be_an_instance_of(Game)
+    end
 
-  it { is_expected.to be_an_instance_of(Game) }
-  it { is_expected.to have_attributes(turn: nil) }
-  it { is_expected.to respond_to(:play_move).with(2).arguments }
+    it "instantiates with two objects - winning_conditions and grid" do
+      expect(subject).to have_attributes(:winning_conditions => instance_of(Winning_Conditions), :grid => instance_of(Grid))
+    end
 
-  it "should initialize with a grid, which is an instance of the grid class" do
-    expect(grid).to be_an_instance_of(Grid)
+    it "instantiates with one instance variable - turn_counter - which is 0" do
+      expect(subject).to have_attributes(:turn_counter => 0)
+    end
   end
 
-  describe "Functionality" do
-
-    it "allows player to play an X move" do
-      expect {game0.play_move(0,0)}.to change{game0.grid.field[0][0]}.by(1)
+  describe "#play_move" do
+    it "can be called on the Game class with 3 arguments" do
+      expect(subject).to respond_to(:play_move).with(2).arguments
     end
 
-    it "allows player to play an O move" do
-      expect {game1.play_move(0,0)}.to change{game1.grid.field[0][0]}.by(-1)
+    context "when a move is played on index 0 of the grid" do
+      it "sets grid position 0 to 1" do
+        expect{ subject.play_move(1, 0) }.to change{ subject.grid.array[0] }.from(0).to(1)
+      end
     end
-
-    it "resets the turn from 0 to 1 after a player has played their move" do
-      expect {game0.play_move(0,0)}.to change{game0.turn}.by(1)
-    end
-
-    it "resets the turn from 1 to 0 after a player has played their move" do
-      expect {game1.play_move(0,0)}.to change{game1.turn}.by(-1)
-    end
-
-    
   end
-
 
 end

@@ -1,30 +1,18 @@
-class Game
-  attr_reader :grid, :turn, :win_checker
+require './lib/winning_conditions.rb'
+require './lib/grid.rb'
 
-  def play_move(row, col)
-    raise("The game is over") if @win_checker.game_over
-    @turn == 0 ? play_X(row, col) : play_O(row, col)
-    @win_checker.check_winning_conditions
-    !@win_checker.winner.winner ? change_turn : @win_checker.winner.declare
+class Game
+  attr_reader :winning_conditions, :grid, :turn_counter
+
+  def play_move(value, location)
+    @grid.record_move(value, location)
   end
 
   private
 
-  def initialize(turn = nil)
+  def initialize
+    @winning_conditions = Winning_Conditions.new
     @grid = Grid.new
-    @win_checker = Win_Checker.new(@grid)
-    @turn = turn
-  end
-
-  def play_X(row, col)
-    @grid.record(X.new(row, col))
-  end
-
-  def play_O(row, col)
-    @grid.record(O.new(row, col))
-  end
-
-  def change_turn
-    @turn == 0 ? @turn = 1 : @turn = 0
+    @turn_counter = 0
   end
 end
