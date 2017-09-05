@@ -18,22 +18,30 @@ describe Game do
     it "can be called on the Game class with 3 arguments" do
       expect(subject).to respond_to(:play_move).with(2).arguments
     end
-
-    context "when a move is played on index 0 of the grid" do
+    context "when a move is played on index 0 of the grid, while turn counter is 0" do
       it "sets grid position 0 to 1" do
-        expect{ subject.play_move(1,  0) }.to change{ subject.grid.array[0] }.from(0).to(1)
+        expect{ subject.play_move(1, 0) }.to change{ subject.grid.array[0] }.from(0).to(1)
+      end
+      it "updates the turn_counter from 0 to 1" do
+        expect{ subject.play_move(1, 0) }.to change{ subject.turn_counter }.from(0).to(1)
       end
     end
-    context "when a move is played on index 3 of the grid" do
-      it "sets grid position 3 to -1" do
-        expect{ subject.play_move(-1,  3) }.to change{ subject.grid.array[3] }.from(0).to(-1)
+    context "when a field is played twice" do
+      it "throws an argument error  with message 'This field is already taken'" do
+        subject.play_move(1, 0)
+        expect{ subject.play_move(-1, 0) }.to raise_error(ArgumentError, 'This field is already taken')
       end
     end
-    context "when a move is played on index 0 of the grid" do
-      it "sets grid position 8 to 1" do
-        expect{ subject.play_move(1,  08) }.to change{ subject.grid.array[8] }.from(0).to(1)
+    context "when a field is played with an input other than 1 or -1" do
+      it "throws an argument error  with message 'This field is already taken'" do
+        expect{ subject.play_move(0, 0) }.to raise_error(ArgumentError, 'That is not a valid input')
+      end
+    end
+    context "when a move is played in an index that is not on the grid" do
+      it "throws an argument error  with message 'That is not a valid move'" do
+        expect{ subject.play_move(1, 9) }.to raise_error(ArgumentError, 'That is not a valid move')
+        expect{ subject.play_move(1, -1) }.to raise_error(ArgumentError, 'That is not a valid move')
       end
     end
   end
-
 end

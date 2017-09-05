@@ -12,7 +12,7 @@ describe Grid do
 
   describe "#record_move" do
     it "can be called on the Grid class with 2 arguments" do
-      expect(subject).to respond_to(:record_move).with(2).argument
+      expect(subject).to respond_to(:record_move).with(2).arguments
     end
 
     context "when record_move is called on index 0 of the array" do
