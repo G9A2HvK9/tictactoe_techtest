@@ -7,9 +7,9 @@ The entire program is written according to best practice with object oriented de
 ## Directions for use
 
 1. Clone this repo into a directory of your choice  
-2. Run the command "bundle init" from the command line  
-3. Run the command "bundle install" from the command line  
-4. Run the command "rspec" from the command line to make sure all tests are passing  
+2. Run the command `~$ bundle init` from the command line  
+3. Run the command `~$ bundle install` from the command line
+4. Run the command `~$ rspec` from the command line to make sure all tests are passing  
 
 ## User Stories
 
@@ -18,17 +18,17 @@ The entire program is written according to best practice with object oriented de
     I want to have a grid
 
 2.  As a user  
-    So I can play a move
+    So I can play a move  
     I want to be able to place an X on the grid  
 
-3.  As a user
-    So I can play with a second person
+3.  As a user  
+    So I can play with a second person  
     I want to be able to place an O on the grid
 
-4.  As a user
+4.  As a user  
     So I can play witha  second person  
-    I want the game to change turns  
+    I want the game to change turns    
 
-5.  As a user
-    So I can know when the game is over
-    I want the game to declare a winner
+5.  As a user  
+    So I can know when the game is over  
+    I want the game to declare a winner  
