@@ -21,7 +21,17 @@ describe Game do
 
     context "when a move is played on index 0 of the grid" do
       it "sets grid position 0 to 1" do
-        expect{ subject.play_move(1, 0) }.to change{ subject.grid.array[0] }.from(0).to(1)
+        expect{ subject.play_move(1,  0) }.to change{ subject.grid.array[0] }.from(0).to(1)
+      end
+    end
+    context "when a move is played on index 3 of the grid" do
+      it "sets grid position 3 to -1" do
+        expect{ subject.play_move(-1,  3) }.to change{ subject.grid.array[3] }.from(0).to(-1)
+      end
+    end
+    context "when a move is played on index 0 of the grid" do
+      it "sets grid position 8 to 1" do
+        expect{ subject.play_move(1,  08) }.to change{ subject.grid.array[8] }.from(0).to(1)
       end
     end
   end
