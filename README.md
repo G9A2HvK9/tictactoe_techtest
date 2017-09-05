@@ -9,7 +9,8 @@ The entire program is written according to best practice with object oriented de
 1. Clone this repo into a directory of your choice  
 2. Run the command `~$ bundle init` from the command line  
 3. Run the command `~$ bundle install` from the command line
-4. Run the command `~$ rspec` from the command line to make sure all tests are passing  
+4. Run the command `~$ rspec` from the command line to make sure all tests are passing 
+5. If all tests are passing, run a ruby interpreter (eg. `~$ irb`)
 
 ## User Stories
 
